@@ -89,10 +89,11 @@ def most_common_reg_days(content)
   reg_days.tally.sort_by { |_k, v| -v }.to_h.keys
 end
 
+
 puts 'The most common registration days in descending order are: '
 puts(most_common_reg_days(contents).each { |day| puts day })
-puts contents.closed?
+ contents.rewind
 puts 'The most common registration hours in descending order are: '
 most_common_reg_hours(contents).each { |hour| p "#{hour}:00" }
 
-contents.close
+
